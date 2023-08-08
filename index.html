@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etch-a-Sketch</title>
+    <script src="main.js" defer></script>
+    <link rel='stylesheet' href='styles.css'/>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fredoka One'>
+</head>
+<body>
+    <div id="titleContainer">
+        <h1>ETCH-A-SKETCH</h1>
+    </div>
+    <div id="gameContainer">
+        <div id="buttonsContainer">
+            <div id="sliderContainer">
+                <p><span id="scaleValue"></span></p>
+                <input type="range" min="16" max="100" value="16" class="slider" id="scale"> 
+            </div>
+            <button class="push" id="classic">
+                <span class="front">CLASSIC</span>
+            </button>
+            <button class="push" id="shade">
+                <span class="front">SHADE</span>
+            </button>
+            <button class="push" id="colour">
+                <span class="front">COLOUR</span>
+            </button>
+            <button class="push" id="reset">
+                <span class="front">RESET</span>
+            </button>
+        </div>
+        <div id="gridContainer"></div>
+    </div>
+</body>
+</html>
+
