@@ -9,26 +9,30 @@ let number = scale.value;
 let fill = "black";
 
 
-//Create etch a sketch grid
+//Create etch-a-sketch grid
 function createGrid () {
   for (let i=0; i<number*number;i++){
       const heightWidth = 32 / number + "rem";
       const gridItem = document.createElement('div');
       gridItem.classList.add('gridItem');
-      //gridItem.addEventListener("mousedown", gridStyle);
       gridItem.addEventListener("mouseover", gridStyle);
       gridItem.style.height = heightWidth; 
       gridItem.style.width = heightWidth;
       gridContainer.append(gridItem);
-      
-      
 }}
 
 createGrid(number);
 
-//Enable grid colour to be changed
+
+//Draw on grid when mouse is over AND down
+let isMouseDown;
+document.addEventListener('mousedown', () => isMouseDown = true);
+document.addEventListener('mouseup', () => isMouseDown = false);
+
+
+//Enable pen sytle to be changed
 function gridStyle(e) {
-  //if (e.type == "mouseover" && e.type !== "mousedown") return
+  if (!isMouseDown) return;
   if (fill === "colour") {
     e.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16)
   }
@@ -40,8 +44,7 @@ function gridStyle(e) {
 }
 
 
-
-//Event listeners for grid style buttons
+//Choose pen style using buttons
 classic.addEventListener("click", (e) =>{
   fill = "black"
 });
@@ -54,24 +57,23 @@ colour.addEventListener("click", (e) =>{
   fill = "colour"
 });
 
-//Event listener for clear grid button
+
+//Use button to clear grid
 clear.addEventListener("click", (e) =>{
   gridContainer.innerHTML="";
   number=scale.value;
   createGrid();
 })
 
-
-//Add event listener to resize grid with slider
-scale.addEventListener("input", newGrid)
- 
-//Function to clear old grid and add new one
 function newGrid() {
   gridContainer.innerHTML="";
   number = this.value;
   createGrid(); 
 }
 
+
+//Resize grid with slider
+scale.addEventListener("input", newGrid)
 
 //Show sliding scale value
 scaleValue.innerHTML = scale.value + " x " + scale.value;
@@ -80,10 +82,3 @@ scaleValue.innerHTML = scale.value + " x " + scale.value;
 scale.oninput = function() {
   scaleValue.innerHTML = this.value + " x " + this.value;
 }
-
-//function colourPicker(){
-//for (let c=0; c<number*number; c++){
- // const randomColours = ["#DF62B1", "#E055A0", "#E96CEB", "#B258F6"]
- // const randomColour = randomColours[Math.floor(Math.random() * randomColours.length)];
-
-
