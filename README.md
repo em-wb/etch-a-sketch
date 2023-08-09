@@ -8,4 +8,4 @@ Built with:
 - CSS
 - Javascript
 
-Live preview: [here] (https://em-wb.github.io/etch-a-sketch/)
+Live preview: <a href="https://em-wb.github.io/etch-a-sketch/">here</a>
