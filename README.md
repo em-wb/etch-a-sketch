@@ -7,3 +7,5 @@ Built with:
 - HTML
 - CSS
 - Javascript
+
+Live preview: [here] (https://em-wb.github.io/etch-a-sketch/)
